@@ -1,5 +1,7 @@
 import { getEmployees, getOrders } from "./database.js";
 
+const employees = getEmployees();
+const orders = getOrders() //need to declare orders with the getOrders function for filter to work
 
 document.addEventListener(
     "click",
@@ -10,7 +12,7 @@ document.addEventListener(
 
             for (const employee of employees) {
                 if (employee.id === parseInt(employeeId)) {
-                    const orders = getOrders() //need to declare orders with the getOrders function for filter to work
+                    
                     const employeeOrders = orders.filter(  // <--- Go to YouTube and search "javascript array filter"
                         (order) => {
                             if (order.employeeId === employee.id) {
@@ -26,9 +28,6 @@ document.addEventListener(
     }
 )
 
-
-
-const employees = getEmployees();
 
 export const Employees = () => {
   let html = "<ul>";
